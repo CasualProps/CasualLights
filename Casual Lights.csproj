@@ -22,8 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\components\" />
-    <Folder Include="ClientApp\src\store\" />
+    <Folder Include="ClientApp\src\actions\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
 

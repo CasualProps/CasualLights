@@ -44,10 +44,6 @@ function mapStateToProps(state, ownProps) {
         value: state.config[ownProps.variable]
     };
 }
-/*
-const mapStateToProps = state => ({
-    value: state.config[variable]
-});*/
 
 const SelectInput = connect(mapStateToProps, mapDispatchToProps)(Select);
 

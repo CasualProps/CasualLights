@@ -1,31 +1,31 @@
 ﻿
 import * as Constants from '../constants/constants';
 
-function Layer() {
+export function Layer() {
     this.Length = 1000;
-    this.BlendingMode = BlendingModes.ADDITIVE;
+    this.BlendingMode = Constants.BlendingModes.ADDITIVE;
     this.Visible = true;
-    this.Channels = new Channels(ColourTypes.RGB);
+    this.Channels = new Channels(Constants.ColourTypes.RGB);
     this.Points = [];
 }
 
 
-function Channels(colourType) {
-    this.Red = this.IsRedEnabled(colourType);
-    this.Green = this.IsGreenEnabled(colourType);
-    this.Blue = this.IsBlueEnabled(colourType);
-    this.White = this.IsWhiteEnabled(colourType);
+export function Channels(colourType) {
+    this.Red = IsRedEnabled(colourType);
+    this.Green = IsGreenEnabled(colourType);
+    this.Blue = IsBlueEnabled(colourType);
+    this.White = IsWhiteEnabled(colourType);
 
-    this.IsRedEnabled = function (colourType) {
+    function IsRedEnabled(colourType) {
         return colourType.includes('r');
     }
-    this.IsGreenEnabled = function (colourType) {
+    function IsGreenEnabled(colourType) {
         return colourType.includes('g');
     }
-    this.IsBlueEnabled = function (colourType) {
+    function IsBlueEnabled(colourType) {
         return colourType.includes('b');
     }
-    this.IsWhiteEnabled = function (colourType) {
+    function IsWhiteEnabled(colourType) {
         return colourType.includes('w');
     }
 }

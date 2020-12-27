@@ -25,10 +25,17 @@ const Easings = {
     LINEAR: 'linear'
 };
 
+const TimelineStates = {
+    PLAYING: 'playing',
+    PAUSED: 'paused',
+    STOPPED: 'stopped'
+}
+
 module.exports = {
     AnimationTypes: AnimationTypes,
     BlendingModes: BlendingModes,
     ColourTypes: ColourTypes,
     ArduinoTypes: ArduinoTypes,
-    Easings: Easings
+    Easings: Easings,
+    TimelineStates: TimelineStates
 };

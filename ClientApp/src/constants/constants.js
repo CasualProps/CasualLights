@@ -21,8 +21,14 @@ const ArduinoTypes = {
     NORMAL: 'normal'
 };
 
+const Easings = {
+    LINEAR: 'linear'
+};
+
 module.exports = {
     AnimationTypes: AnimationTypes,
     BlendingModes: BlendingModes,
-    ColourTypes: ColourTypes
+    ColourTypes: ColourTypes,
+    ArduinoTypes: ArduinoTypes,
+    Easings: Easings
 };

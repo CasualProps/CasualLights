@@ -1,10 +1,10 @@
 ﻿
 
 function Colour() {
-    this.Red;
-    this.Green;
-    this.Blue;
-    this.White;
+    this.Red = 0;
+    this.Green = 0;
+    this.Blue = 0;
+    this.White = 0;
 
     this.SetColour = function (red, green, blue, white) {
         this.SetRed(red);
@@ -14,16 +14,16 @@ function Colour() {
     }
 
     this.SetRed = function (value) {
-        this.Red = ClampValue(value);
+        this.Red = this.ClampValue(value);
     }
     this.SetGreen = function (value) {
-        this.Green = ClampValue(value);
+        this.Green = this.ClampValue(value);
     }
     this.SetBlue = function (value) {
-        this.Blue = ClampValue(value);
+        this.Blue = this.ClampValue(value);
     }
     this.SetWhite = function (value) {
-        this.White = ClampValue(value);
+        this.White = this.ClampValue(value);
     }
 
     this.ClampValue = function (value) {

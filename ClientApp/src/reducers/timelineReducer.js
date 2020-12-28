@@ -1,14 +1,12 @@
 
-import { Timeline } from '../components/timeline';
-
-const initialState = new Timeline();
+const initialState = {
+    Length: 3000,
+    CurrentTime: 0,
+    StepLength: 50
+}
 
 export default function timelineReducer(state = initialState, action) {
     switch (action.type) {
-        case 'timeline-add-layer':
-            return { ...state }; //create a new empty layer
-        case 'timeline-remove-layer':
-            return { ...state }; //remove layer at index action.payload.layerIndex
         case 'timeline-update-length':
             return { ...state }; //set timeline.Length to action.payload.targetLength, include middleware to clamp all layer lengths to new timeline length
         case 'timeline-update-time':

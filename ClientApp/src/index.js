@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import * as Constants from './constants/constants';
 
 import SelectInput from './components/select';
+import Timeline from './components/timeline';
 import { Store } from './store/configuration';
 
 /*
@@ -28,6 +29,7 @@ ReactDOM.render(
     <Provider store={Store}>
         <SelectInput variable="BlendingMode" value={Constants.BlendingModes.ADDITIVE} options={Constants.BlendingModes} label="Select a blending mode" />
         <SelectInput variable="AnimationType" value={Constants.AnimationTypes.CHASE} options={Constants.AnimationTypes} label="Select an animation type" />
+        <Timeline />
     </Provider>,
     document.getElementById("root")
 );

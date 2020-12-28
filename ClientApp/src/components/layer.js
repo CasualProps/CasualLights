@@ -1,31 +1,56 @@
 ﻿
 import * as Constants from '../constants/constants';
+import * as DefaultChannels from '../default/channels';
 
-export function Layer() {
-    this.Length = 1000;
-    this.BlendingMode = Constants.BlendingModes.ADDITIVE;
-    this.Visible = true;
-    this.Channels = new Channels(Constants.ColourTypes.RGB);
-    this.Points = [];
+import * as React from 'react';
+import { connect } from 'react-redux';
+
+class LayerComponent extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.Index = props.Index;
+        this.Length = props.Length;
+        this.BlendingMode = props.BlendingMode;
+        this.Visible = props.Visible;
+        this.Channels = props.Channels;
+        this.Points = props.Channels;
+
+        this.removeLayer = this.removeLayer.bind(this);
+    }
+
+    removeLayer() {
+        this.props.removeLayerAction({ layerIndex: this.props.Index});
+    }
+
+    render() {
+        return (
+            <div>
+                <span>Index : {this.props.Index}</span> <br/>
+                <span>Length : {this.props.Length}</span> <br/>
+
+                <input type="button" value="Remove Layer" onClick={this.removeLayer} />
+            </div>
+        );
+    }
 }
 
-
-export function Channels(colourType) {
-    this.Red = IsRedEnabled(colourType);
-    this.Green = IsGreenEnabled(colourType);
-    this.Blue = IsBlueEnabled(colourType);
-    this.White = IsWhiteEnabled(colourType);
-
-    function IsRedEnabled(colourType) {
-        return colourType.includes('r');
-    }
-    function IsGreenEnabled(colourType) {
-        return colourType.includes('g');
-    }
-    function IsBlueEnabled(colourType) {
-        return colourType.includes('b');
-    }
-    function IsWhiteEnabled(colourType) {
-        return colourType.includes('w');
-    }
+function mapDispatchToProps(dispatch) {
+    return {
+        removeLayerAction: payload => dispatch({ type: "timeline-remove-layer", payload })
+    };
 }
+
+function mapStateToProps(state, ownProps) {
+    return {
+        Length: state.layers[ownProps.Index].Length,
+        BlendingMode: state.layers[ownProps.Index].BlendingMode,
+        Visible: state.layers[ownProps.Index].Visible,
+        Channels: state.layers[ownProps.Index].Channels,
+        Points: state.layers[ownProps.Index].Points
+    };
+}
+
+const Layer = connect(mapStateToProps, mapDispatchToProps)(LayerComponent);
+
+export default Layer;

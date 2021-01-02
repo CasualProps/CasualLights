@@ -1,9 +1,11 @@
 ﻿
 import * as Constants from '../constants/constants';
 
-export const Channels = {
+const defaultChannels = {
     Red: Constants.ColourTypes.RGB.includes('r'),
     Green: Constants.ColourTypes.RGB.includes('g'),
     Blue: Constants.ColourTypes.RGB.includes('b'),
     White: Constants.ColourTypes.RGB.includes('w')
 };
+
+export default defaultChannels;

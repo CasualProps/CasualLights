@@ -1,12 +1,12 @@
 ﻿
 import * as Constants from '../constants/constants';
-import { Channels } from '../components/channels';
+import defaultChannels from './channels';
 
 const defaultLayer = {
     Length: 1000,
     BlendingMode: Constants.BlendingModes.ADDITIVE,
     Visible: true,
-    Channels: new Channels(Constants.ColourTypes.RGB),
+    Channels: defaultChannels,
     Points: []
 };
 

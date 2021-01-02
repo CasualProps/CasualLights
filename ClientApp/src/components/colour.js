@@ -1,32 +1,25 @@
-﻿
+﻿import React from 'react';
+import { SketchPicker } from 'react-color';
 
-function Colour() {
-    this.Red = 0;
-    this.Green = 0;
-    this.Blue = 0;
-    this.White = 0;
+export default class ColourPicker extends React.Component {
+    constructor(props) {
+        super(props);
 
-    this.SetColour = function (red, green, blue, white) {
-        this.SetRed(red);
-        this.SetGreen(green);
-        this.SetBlue(blue);
-        this.SetWhite(white);
+        this.Colour = props.Colour;
+        this.handleChangeComplete = this.handleChangeComplete.bind(this);
     }
 
-    this.SetRed = function (value) {
-        this.Red = this.ClampValue(value);
-    }
-    this.SetGreen = function (value) {
-        this.Green = this.ClampValue(value);
-    }
-    this.SetBlue = function (value) {
-        this.Blue = this.ClampValue(value);
-    }
-    this.SetWhite = function (value) {
-        this.White = this.ClampValue(value);
-    }
+    handleChangeComplete = (colour) => {
+        this.props.Colour = colour.rgb;
+    };
 
-    this.ClampValue = function (value) {
-        return Math.max(0, Math.min(value, 255));
+    render() {
+        return (
+            <SketchPicker
+                color={this.props.Colour}
+                onChangeComplete={this.handleChangeComplete}
+                disableAlpha="true"
+            />
+        );
     }
 }

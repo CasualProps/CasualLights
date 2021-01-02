@@ -1,16 +1,10 @@
 
 import * as Constants from '../constants/constants';
-import { Channels } from '../components/channels';
 import { Colour } from '../components/colour';
 import defaultLayer from '../default/layer';
+import layerPointReducer from './layerPointReducer';
 
 const initialState = [defaultLayer];
-
-function LayerPoint() {
-    this.Position = 0;
-    this.Colour = new Colour();
-    this.Easing = Constants.Easings.LINEAR;
-}
 
 export default function layerReducer(state = initialState, action) {
     switch (action.type) {
@@ -30,10 +24,9 @@ export default function layerReducer(state = initialState, action) {
             return { ...state }; //update layer at index action.payload.layerIndex moving it to action.payload.targetIndex 
 
         case 'layer-add-point':
-            return { ...state }; //update layer at index action.payload.layerIndex adding point at action.payload.layerPoint.
-            //Maybe middleware to keep point order in ascending order from position ?
+            return layerPointReducer(state, action);
         case 'layer-remove-point':
-            return { ...state }; //update layer at index action.payload.layerIndex removing point at action.payload.pointIndex
+            return layerPointReducer(state, action);
         case 'layer-update-point':
             return { ...state }; //update layer at index action.payload.layerIndex updating point at action.payload.pointIndex to action.payload.layerPoint
         default:

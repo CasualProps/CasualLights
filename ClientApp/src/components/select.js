@@ -1,50 +1,25 @@
-﻿import * as React from 'react';
+﻿
+import * as React from 'react';
+import { useState, useLayoutEffect } from "react";
 import { connect } from 'react-redux';
+import { selectValue } from '../store/config';
 
-class Select extends React.Component {
-    constructor(props) {
-        super(props);
-        this.options = props.options;
-        this.label = props.label;
-        this.variable = props.variable;
 
-        this.handleChange = this.handleChange.bind(this);
+export const Select = ({ options, variableName }) => {
+    //const options = useSelect();
+    const [variable, setVariable] = useState(options);
+
+    const handleSelectChange = (event) => {
+        console.log(variable[event.target.value]);
+        selectValue({ variable: variableName, value: variable[event.target.value]});
     }
 
-    handleChange(event) {
-        this.props.selectFromList({ variable: this.variable, value: event.target.value });
-    }
-
-    render() {
-        return (
-            <label>
-                { this.label }:
-                <select value={this.props.value} onChange={this.handleChange}>
-                    {
-                        Object.entries(this.options)
-                            .map(([key, value]) => <option value={value}>{value}</option>)
-                    }
-                </select>
-                <div>
-                    Selected value = {this.props.value }
-                </div>
-            </label>
-        );
-    }
+    return (
+        <select onChange={e => handleSelectChange(e)}>
+            {
+                Object.entries(variable)
+                    .map(([key, value]) => <option value={key}>{value}</option>)
+            }
+        </select>
+    );
 }
-
-function mapDispatchToProps(dispatch) {
-    return {
-        selectFromList: payload => dispatch({ type: "config-select-fromList", payload })
-    };
-}
-
-function mapStateToProps(state, ownProps) {
-    return {
-        value: state.config[ownProps.variable]
-    };
-}
-
-const SelectInput = connect(mapStateToProps, mapDispatchToProps)(Select);
-
-export default SelectInput;

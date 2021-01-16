@@ -6,7 +6,6 @@ import { selectValue } from '../store/config';
 
 
 export const Select = ({ options, variableName }) => {
-    //const options = useSelect();
     const [variable, setVariable] = useState(options);
 
     const handleSelectChange = (event) => {

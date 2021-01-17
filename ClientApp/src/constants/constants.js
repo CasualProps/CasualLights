@@ -12,7 +12,10 @@ const AnimationTypes = {
     PULSE: 'pulse'
 };
 
-const ColourTypes = ['RGB', 'RGBW'];
+const ColourTypes = {
+    RGB: 'rgb',
+    RGBW: 'rgbw'
+};
 
 const ArduinoTypes = {
     NORMAL: 'normal',

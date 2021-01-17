@@ -1,15 +1,13 @@
 import { useState, useLayoutEffect } from "react";
 import { store } from "./store";
+import * as Constants from '../constants/constants';
 const storeKey = "config";
 
-// DEFINITIONS
-const getUniqueId = list =>
-    list.length > 0 ? Math.max(...list.map(t => t.id)) + 1 : 1;
-
 const initialState = {
-    testValue: 1,
-    rgbType: 'rgb'
-    };
+    stripLength: 5,
+    arduinoType: Constants.ArduinoTypes.NORMAL,
+    colourType: Constants.ColourTypes.RGB
+};
 
 const reducers = {
     selectValue: (state, action) => ({ ...state, [action.variable] : action.value })

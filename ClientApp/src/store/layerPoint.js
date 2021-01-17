@@ -24,20 +24,20 @@ const initialState = [];
 const reducers = {
     addLayerPoint: (list, payload) => [...list, { ...payload, id: getUniqueId(list) }],
     removeLayerPoint: (list, payload) => list.filter(layer => layer.id !== payload.id),
-    setLayerPointColour: (list, payload) => [...list]
+    updateLayerPoint: (list, payload) => updateObjectInArray(list, payload)
 };
 
-function updateObjectInArray(array, action) {
-    return array.map((item, index) => {
-        if (item.id !== action.index) {
+function updateObjectInArray(list, payload) {
+    return list.map((item, index) => {
+        if (item.id !== payload.id) {
             return item
         }
 
         return {
             ...item,
-            ...action.item
+            ...payload
         }
-    })
+    });
 }
 
 // HELPERS
@@ -61,8 +61,8 @@ export const addLayerPoint = item =>
     store.dispatch({ type: "addLayerPoint", payload: item });
 export const removeLayerPoint = item =>
     store.dispatch({ type: "removeLayerPoint", payload: item });
-export const setLayerPointColour = item =>
-    store.dispatch({ type: "setLayerPointColour", payload: item });
+export const updateLayerPoint = item =>
+    store.dispatch({ type: "updateLayerPoint", payload: item });
 
 export const getLayerPoints = id =>
     store.getState()[storeKey].filter(layerPoint => layerPoint.layerId === id);

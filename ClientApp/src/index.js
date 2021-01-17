@@ -2,16 +2,21 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 import { Select } from './components/select';
-import { Timeline } from './components/timeline';
 import * as Constants from './constants/constants';
+import { Sidebar } from './sidebar';
+import { Body } from './body';
+import './styles/main.scss';
 
 ReactDOM.render(
-    <div>
-        <Select options={Constants.ColourTypes} variableName="colourType" />
-        <Select options={Constants.ArduinoTypes} variableName="arduinoType" />
-    </div>
-    , document.getElementById("sidebar"));
+    <div className="root">
+        <div className="sidebar">
+            <Sidebar />
+        </div>
 
-ReactDOM.render(<Timeline />, document.getElementById("root"));
+        <div className="content">
+            <Body />
+        </div>
+    </div>
+
+    , document.getElementById("root"));

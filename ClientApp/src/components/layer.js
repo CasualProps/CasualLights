@@ -1,5 +1,4 @@
-﻿
-import React from 'react';
+﻿import React from 'react';
 import * as Constants from '../constants/constants';
 import { removeLayer } from '../store/layers';
 import { LayerPoint } from './layerPoint';
@@ -18,7 +17,7 @@ export const Layer = ({ index, layer }) => {
 
             {
                 layerPoints.map((layerPoint, index) => {
-                    return <LayerPoint layerPoint={layerPoint} />
+                    return <LayerPoint {...layerPoint} />
                 })
             }
             <input type="button" value="Add Layer Point"

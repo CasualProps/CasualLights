@@ -1,11 +1,11 @@
 ﻿import React from 'react';
-import * as Constants from '../constants/constants';
-import { removeLayer } from '../store/layers';
+import * as Constants from '../../constants/constants';
+import { removeLayer } from '../../store/layers';
 import { LayerPoint } from './layerPoint';
-import { addLayerPoint, getLayerPoints, useLayerPoints } from '../store/layerPoint';
+import { addLayerPoint, getLayerPoints, useLayerPoints } from '../../store/layerPoint';
 
 export const Layer = ({ index, layer }) => {
-    const layerPointState = useLayerPoints();
+    useLayerPoints();
     const layerPoints = getLayerPoints(layer.id);
     return (
         <div>

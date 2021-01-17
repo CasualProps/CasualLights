@@ -2,10 +2,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Select } from './components/select';
+import { Select } from './components/config/select';
 import * as Constants from './constants/constants';
-import { Sidebar } from './sidebar';
-import { Body } from './body';
+import { Sidebar } from './sections/sidebar';
+import { Body } from './sections/body';
 import './styles/main.scss';
 
 ReactDOM.render(

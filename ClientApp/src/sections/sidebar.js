@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { NumberInput } from './components/number';
-import { Select } from './components/select';
-import { ExportContainer } from './components/export';
-import * as Constants from './constants/constants';
+import { NumberInput } from '../components/config/number';
+import { Select } from '../components/config/select';
+import { ExportContainer } from '../components/config/export';
+import * as Constants from '../constants/constants';
 
 export const Sidebar = () => {
     return (

@@ -1,6 +1,6 @@
 ﻿import * as React from 'react';
 import ColourPicker from './colour';
-import { removeLayerPoint, updateLayerPoint } from '../store/layerPoint';
+import { removeLayerPoint, updateLayerPoint } from '../../store/layerPoint';
 
 export const LayerPoint = (layerPoint) => {
     const handleColourChange = (colour) => {

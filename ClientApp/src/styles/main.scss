@@ -54,3 +54,11 @@ html, body {
         border: 1px solid black;
     }
 }
+
+.led-light {
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    background: red;
+    margin-left: 2px;
+}

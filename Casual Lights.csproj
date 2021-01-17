@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="ClientApp\src\actions\" />
+    <Folder Include="ClientApp\src\components\config\NewFolder\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
 

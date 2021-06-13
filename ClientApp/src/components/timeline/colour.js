@@ -10,8 +10,8 @@ export default class ColourPicker extends React.Component {
         return (
             <SketchPicker
                 color={this.props.Colour}
-                onChange={this.props.upcateColour}
-                onChangeComplete={this.props.upcateColour}
+                onChange={this.props.updateColour}
+                onChangeComplete={this.props.handleColourPick}
                 disableAlpha={true}
             />
         );

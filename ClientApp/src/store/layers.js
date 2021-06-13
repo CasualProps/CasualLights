@@ -1,8 +1,6 @@
-import { useState, useLayoutEffect } from "react";
-import { store } from "./store";
-import * as Constants from '../constants/constants';
-import defaultChannels from '../default/channels';
+import { useLayoutEffect, useState } from "react";
 import defaultLayer from '../default/layer';
+import { store } from "./store";
 const storeKey = "layers";
 
 // DEFINITIONS

@@ -1,6 +1,5 @@
 ﻿import * as React from 'react';
-import { useState, useLayoutEffect } from "react";
-import { connect } from 'react-redux';
+import { useState } from "react";
 import { selectValue } from '../../store/config';
 
 export const NumberInput = ({ defaultValue, variableName }) => {

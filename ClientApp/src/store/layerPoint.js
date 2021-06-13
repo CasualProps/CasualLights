@@ -1,8 +1,6 @@
 import { useState, useLayoutEffect } from "react";
 import { store } from "./store";
-import * as Constants from '../constants/constants';
-import defaultChannels from '../default/channels';
-import defaultLayer from '../default/layer';
+import defaultLayerPoint from "../default/layerPoint";
 const storeKey = "layerPoints";
 
 
@@ -10,16 +8,12 @@ const storeKey = "layerPoints";
 const getUniqueId = list =>
     list.length > 0 ? Math.max(...list.map(t => t.id)) + 1 : 1;
 
-const exampleLayerPoint = {
-    id: 1,
-    layerId: 1,
-    index: 1,
-    position: 100,
-    colour: "FF0000",
-    easing: Constants.Easings.LINEAR
-};
-
-const initialState = [];
+const initialState = [
+    {
+        ...defaultLayerPoint,
+        layerId: 1
+    }
+];
 
 const reducers = {
     addLayerPoint: (list, payload) => [...list, { ...payload, id: getUniqueId(list) }],

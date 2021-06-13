@@ -6,7 +6,8 @@ const defaultColours = [
 ];
 
 function getDefaultColour() {
-    return defaultColours[Math.floor(Math.random() * defaultColours.length)];
+    return 'FF00FF';
+    //return defaultColours[Math.floor(Math.random() * defaultColours.length)];
 };
 
 export default getDefaultColour;

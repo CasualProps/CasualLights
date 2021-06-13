@@ -6,8 +6,7 @@ const defaultLayer = {
     Length: 1000,
     BlendingMode: Constants.BlendingModes.ADDITIVE,
     Visible: true,
-    Channels: defaultChannels,
-    Points: []
+    Channels: defaultChannels
 };
 
 export default defaultLayer;

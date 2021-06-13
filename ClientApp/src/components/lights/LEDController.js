@@ -1,8 +1,6 @@
 ﻿import * as React from 'react';
-import { useState, useLayoutEffect } from "react";
-import { connect } from 'react-redux';
-import { LED } from './LED';
 import { useConfig } from '../../store/config';
+import { LED } from './LED';
 
 export const LEDController = () => {
     const state = useConfig();

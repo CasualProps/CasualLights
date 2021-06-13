@@ -1,3 +1,9 @@
+
+
+//import 'jquery/dist/jquery.min.js'
+import $ from 'jquery';
+import * as popper from 'popper.js';
+import 'bootstrap/dist/js/bootstrap.bundle.js';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import * as React from 'react';
@@ -18,5 +24,9 @@ ReactDOM.render(
             <Body />
         </div>
     </div>
-
     , document.getElementById("root"));
+
+
+$(function () {
+    $('[data-toggle="popover"]').popover();
+})

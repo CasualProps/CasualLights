@@ -1,5 +1,4 @@
 ﻿
-import * as Constants from '../constants/constants';
 
 const defaultChannels = {
     Red: true,

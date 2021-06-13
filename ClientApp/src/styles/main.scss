@@ -1,8 +1,12 @@
 ﻿
+
+$gray-dark: #292929;
+
 html, body {
     width: 100%;
     height: 100%;
 }
+
 #root {
     width: 100%;
     height: 100%;
@@ -14,7 +18,6 @@ html, body {
 
     .sidebar {
         width: 300px;
-
         border: 1px solid black;
     }
 
@@ -50,15 +53,115 @@ html, body {
     }
 
     .timeline-container {
+        background: $gray-dark;
+        color: white;
         height: 350px;
+        overflow-y: scroll;
         border: 1px solid black;
     }
 }
 
-.led-light {
+.led-container {
+    background: #efefef;
+    padding: 1em;
+}
+
+.led-light-wrapper {
     display: inline-block;
-    height: 30px;
-    width: 30px;
-    background: red;
-    margin-left: 2px;
+    margin-left: 0.5em;
+
+    .led-light-box {
+        height: 100%;
+        width: 100%;
+        background: white;
+        border-radius: 5px;
+        padding: 0.3em;
+        border: 3px solid rgba(0,0,0,0.2);
+        border-top-width: 0;
+        border-right-width: 0;
+    }
+
+    .led-light-chip {
+        height: 2em;
+        width: 2em;
+        background: red;
+        border-radius: 50%;
+        filter: blur(0.3em);
+    }
+}
+
+.layers-wrapper {
+    padding: 0;
+}
+
+.timeline-header {
+    display: flex;
+}
+.timeline-sidebar {
+    width: 200px;
+    position: relative;
+}
+.timeline-body {
+    flex-grow: 1;
+}
+
+.layer-container {
+    height: 100px;
+    display: flex;
+
+    .layer-config {
+        @extend .timeline-sidebar;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 0.5em;
+        padding: 1em;
+        display: flex;
+    }
+
+    .layer-timeline {
+        @extend .timeline-body;
+        //vertical line segments
+        background: repeating-linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 74px, rgba(255,255,255,0.2) 75px, rgba(255,255,255,0.2) 75px);
+    }
+}
+
+.layer-name {
+    font-weight: bold;
+    flex-grow: 1;
+}
+
+.layer-icons {
+    display: flex;
+    column-gap: 0.3em;
+
+    .layer-icon {
+        font-weight: bold;
+        height: 1.5em;
+        width: 1.5em;
+        cursor: pointer;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid rgba(255,255,255,0.3);
+        line-height: 1.5em;
+        border-radius: 25%;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .layer-blending {
+    }
+
+    .layer-channels {
+    }
+
+    .layer-remove {
+    }
+}
+
+.layerpoint-colorpicker {
+    width: 25px;
+    height: 25px;
+    background: #ccc;
+    position: relative;
 }
